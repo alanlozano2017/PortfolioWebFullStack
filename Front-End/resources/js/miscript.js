@@ -3,6 +3,7 @@
 /* función que cambia el estilo del input a visible
 toma un valor del texto del párrafo con id "text-acercade"
 y lo muestra en consola
+
 */
 function cambiar_parrafo(){
 
