@@ -15,6 +15,7 @@
 
 </head>
 <body>
+    
     <!-- primer div  -->
     <div id="firt-card" class="card mat-card">
         <div id="profile-background">
@@ -71,18 +72,23 @@
             </div>
             <h3>Lorem, ipsum dolor.</h3>
         </div>
+
+
         <div class=" d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="#" class="btn-edit btn btn-light"><i class="fa fa-pen"></i></a>
+            <a onclick="javascript: cambiar_parrafo();" href="#" class="btn-edit btn btn-light"><i class="fa fa-pen"></i></a>
             <a href="#" class="btn-edit btn btn-light"><i class="fa fa-trash"></i></a>
         </div>
         <div>
-            Descripcion personal 
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores ab porro facere velit maiores impedit sunt repudiandae.
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis deserunt natus, aspernatur, nesciunt enim dolorem nam harum dolores porro fugit deleniti earum sit. Reiciendis accusantium officiis architecto hic impedit officia.</p>
+            
+            <p id="text-acercade">Lount natus, aspernatur, nesciunt enimores porro fugit delenitintium officiis architecto hic impedit officia.</p>
         </div>
 
-
-
+        <div>
+            <input id="edit-acercade" oninput="javascript: set_parrafo(this.value);" type="text" style="display: none;">
+        </div>
+        <div>
+            <input type="file" id="file1" onchange="javascript: showFile(this);">
+        </div>
 
 
         
@@ -172,6 +178,8 @@
           </p>
 
     </div>
+    <script src="resources/js/miscript.js">
+    </script>
 
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
