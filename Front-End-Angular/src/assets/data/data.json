@@ -1,0 +1,95 @@
+
+		{
+			"name": "Alan Lozano",
+			"image": "1",
+			"position": "Ustudiante de Analísta de Sistemas de Información",
+			"company":{
+				"name": "",
+				"img":"",
+				"url": "#"
+			},
+			"school":{
+				"name": "UNViNe",
+				"img":"",
+				"url": "#"
+			},
+			"ubication":"Villa Mercedes (San Luis)",
+			"about":"Estudiante de Analísta de Sistemas y Programador",
+			
+			"experience":[
+				{
+					"Position": "Empleado de comercio",
+					"company": "Gregoris Villa Mercedes",
+					"img": "",
+					"mode":"jornada completa",
+					"start": "2009",
+					"end": "2011",
+					"timeElapsed": "3 años"
+				},{
+					"Position": "Empleado de comercio",
+					"company": "Broken Moda",
+					"img": "",
+					"mode":"jornada completa",
+					"start": "2012",
+					"end": "2014",
+					"timeElapsed": "3 años"
+				}
+			],
+			"education":[
+				{
+					"school": "Colegio Nº15 Ing. Agustín Mercau",
+					"title": "Técmico Electromecánico",
+					"img": "",
+					"carrer":"Técnico en Mantenimiento de Equipos Electromecánicos",
+					"start": "2003",
+					"end": "2008"
+				},{
+					"school": "Fices",
+					"title": "Licenciatura",
+					"img": "",
+					"carrer":"Ingeniería industral y Administración de empresas (incompleto)",
+					"start": "enero 2009",
+					"end": "noviembre 2011"
+				},{
+					"school": "UNViMe",
+					"title": "Analísta",
+					"img": "./assets/imagenes/unvime-logo.png",
+					"carrer":"Analísta de Sistemas y programador (próximo a terminar)",
+					"start": "2014",
+					"end": "2022"
+				},{
+					"school": "Argentina Programa Inti",
+					"title": "Programador Full Stack",
+					"img": "./assets/imagenes/AP-logo.png",
+					"carrer":"Programador Full Stack",
+					"start": "noviembre 2021",
+					"end": "agosto 2022"
+				}
+			],
+			"aptitudes":[{
+				"mame": "UNViMe",
+				"progress": "Analísta",
+				"confirms": "",
+				"confirmNames":[{
+						"name1":"a"
+
+				}]
+			}],
+			
+			"apellido": "Lozano",
+			"fecha_nacimiento": "15/03/1980",
+			"nacionalidad": "Argentina",
+			"mail": "manuel@gmail.com",
+			"sobre_mi": 
+			[{
+				"p1": "Me gusta constantemente aprender y adquirir conocimientos  de electrónica, diagnóstico en software y mecánica automotriz",
+
+				"p2": " Así como también realizar rutinas de ejercicios caminatas y trote variados para mejorar el estado físico y calidad de vida.",
+
+				"p3": "A la fecha estoy terminando las carreras de Analista de Sistemas de Información y Programador universitario en la UNViMe."
+			}],
+			"ocupación": "Programador Full Stack",
+			"image_background_header": "https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-black-shading-red-shard-geometry-banner-background-shadingred-debrisred-glowgeometry-image_80184.jpg",
+			"image_perfil": "https://i2.wp.com/imagenes.milenio.com/E-yJnq9EhkZhWaU7T_2utkyTymQ=/958x596/smart/https://www.milenio.com/uploads/media/2018/10/05/steve-jobs-perdio-vida-consecuencia_0_199_1193_742.jpg?w=640&ssl=1",
+			"id_domicilio":"2"
+		}

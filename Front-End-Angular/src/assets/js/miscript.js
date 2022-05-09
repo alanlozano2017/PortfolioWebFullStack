@@ -22,6 +22,8 @@ function logMessage(message) {
 }
 //controla si se presionó enter t muestra en consola las teclas
 let textarea=document.getElementById("edit-acercade");
+
+
 if(textarea){
 
     textarea.addEventListener('keyup', (e) => {
