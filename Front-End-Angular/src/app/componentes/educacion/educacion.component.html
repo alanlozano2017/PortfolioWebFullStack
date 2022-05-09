@@ -1,0 +1,32 @@
+<!-- tercer div - Educación -->
+
+<div class="card mat-card">
+    <div id="experience">
+        <h2>Educación</h2>
+
+        <div class="up30 d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="#" class="btn-edit btn btn-light"><i class="fa fa-plus"></i></a>
+        </div>
+    </div>
+    
+    <div>
+        <ul id="items-list">
+            <li *ngFor="let educacion of educacionList">
+                
+                <span>{{educacion?.school}}</span><br>
+                <span>{{educacion?.carrer}}</span><br>
+                <span>{{educacion?.start}} - {{educacion?.end}}</span>
+
+                <div class="up30 d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="#" class="btn-edit btn btn-light"><i class="fa fa-pen"></i></a>
+                    <a href="#" class="btn-edit btn btn-light"><i class="fa fa-trash"></i></a>
+                  </div>
+            </li>
+
+            
+           
+        </ul>
+        
+    </div>
+
+</div>
