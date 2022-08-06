@@ -1,0 +1,15 @@
+
+.contenedor{
+    
+    display: flex;
+    width: 102%;
+
+    background-color: rgb(20, 69, 143);
+
+}
+img{
+
+    width: 100%;
+
+}
+

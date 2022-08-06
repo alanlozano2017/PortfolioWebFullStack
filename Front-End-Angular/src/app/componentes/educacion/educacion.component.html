@@ -1,32 +1,30 @@
 <!-- tercer div - Educación -->
-
 <div class="card mat-card">
-    <div id="experience">
-        <h2>Educación</h2>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <button  type="button" class="btn btn-light"><i class="fa fa-plus"></i></button>
 
-        <div class="up30 d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="#" class="btn-edit btn btn-light"><i class="fa fa-plus"></i></a>
+            <h1>Educación</h1>
+
+        </div>
+
+    </div>
+
+        <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-11">
+            <ul id="items-list">
+                <li *ngFor="let educacion of educacionList">
+                    <button type="button" class="btn btn-light"><i class="fa fa-trash"></i></button>
+                    <button type="button" class="btn btn-light"><i class="fa fa-pen"></i></button>
+                    <h2>{{educacion?.school}} | </h2>  <h3>{{educacion?.start}} - {{educacion?.end}}</h3>
+                    <h4>{{educacion?.carrer}}</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta velit, dignissimos dolor ducimus eum illo! Adipisci non ex sint fugit placeat saepe consequatur eos asperiores, vel voluptate dignissimos, sed suscipit.
+                    </p>
+                </li>
+            </ul>
         </div>
     </div>
-    
-    <div>
-        <ul id="items-list">
-            <li *ngFor="let educacion of educacionList">
-                
-                <span>{{educacion?.school}}</span><br>
-                <span>{{educacion?.carrer}}</span><br>
-                <span>{{educacion?.start}} - {{educacion?.end}}</span>
-
-                <div class="up30 d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="#" class="btn-edit btn btn-light"><i class="fa fa-pen"></i></a>
-                    <a href="#" class="btn-edit btn btn-light"><i class="fa fa-trash"></i></a>
-                  </div>
-            </li>
-
-            
-           
-        </ul>
-        
-    </div>
-
 </div>

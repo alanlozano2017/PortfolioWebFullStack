@@ -1,0 +1,52 @@
+<div class="card mat-card">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <button  type="button" class="btn btn-light"><i class="fa fa-plus"></i></button>
+
+            <h1>Hard & Soft Skills</h1>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+        <div *ngFor="let skills of hard_skillslist" class="col-sm-4 col-md-4 col-lg-4">
+            <circle-progress
+            [percent]="skills?.progress"
+            [radius]="100"
+            [imageSrc]="skills?.logo"
+            [showImage]="true"
+            [imageHeight]="70"
+            [imageWidth]="70"
+            [showUnits]="false"
+            [showSubtitle]="false"
+            [outerStrokeWidth]="16"
+            [innerStrokeWidth]="2"
+            [outerStrokeColor]="'#78C000'"
+            [innerStrokeColor]="'#C7E596'"
+            [animation]="true"
+            [animationDuration]="600"
+          ></circle-progress>
+        </div>
+        <div *ngFor="let skills2 of soft_skillslist" class="col-sm-4 col-md-4 col-lg-4">
+            <circle-progress
+            [percent]="skills2?.progress"
+            [radius]="100"
+            [imageSrc]="skills2?.logo"
+            [showImage]="true"
+            [imageHeight]="70"
+            [imageWidth]="70"
+            [showUnits]="false"
+            [showSubtitle]="false"
+            [outerStrokeWidth]="16"
+            [innerStrokeWidth]="2"
+            [outerStrokeColor]="'#78C000'"
+            [innerStrokeColor]="'#C7E596'"
+            [animation]="true"
+            [animationDuration]="600"
+          ></circle-progress>
+        </div>
+    </div>
+</div>

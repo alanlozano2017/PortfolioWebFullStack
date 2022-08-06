@@ -1,46 +1,31 @@
   <!-- cuarto div - Experiencia -->
-
   <div class="card mat-card">
-    <div id="experience">
-        <h2>Experiencia</h2>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <button  type="button" class="btn btn-light"><i class="fa fa-plus"></i></button>
 
-        <div class="up30 d-grid gap-2 d-md-flex justify-content-md-end">
-            <a href="#" class="btn-edit btn btn-light"><i class="fa fa-plus"></i></a>
+            <h1>Expeciencia Laboral</h1>
+
+        </div>
+
+    </div>
+
+        <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-11">
+            <ul id="items-list">
+                <li *ngFor="let experience of experienceList">
+                    <button type="button" class="btn btn-light"><i class="fa fa-trash"></i></button>
+                    <button type="button" class="btn btn-light"><i class="fa fa-pen"></i></button>
+                    <h2>{{experience?.company}} | </h2>  <h3>{{experience?.start}} - {{experience?.end}}</h3>
+                    
+                    <h4>{{experience?.Position}}</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta velit, dignissimos dolor ducimus eum illo! Adipisci non ex sint fugit placeat saepe consequatur eos asperiores, vel voluptate dignissimos, sed suscipit.
+                    </p>
+                </li>
+            </ul>
         </div>
     </div>
-    
-    <div>
-        <ul id="items-list">
-            <li>
-                
-                <span>Lorem, ipsum dolor.</span><br>
-                <span>Lorem, ipsum dolor.</span>
-            </li>
-
-            <div class="up30 d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="#" class="btn-edit btn btn-light"><i class="fa fa-pen"></i></a>
-                <a href="#" class="btn-edit btn btn-light"><i class="fa fa-trash"></i></a>
-              </div>
-            <li>
-
-                <span>Lorem, ipsum dolor.</span><br>
-                <span>Lorem, ipsum dolor.</span>
-            </li>
-            <div class="up30 d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="#" class="btn-edit btn btn-light"><i class="fa fa-pen"></i></a>
-                <a href="#" class="btn-edit btn btn-light"><i class="fa fa-trash"></i></a>
-              </div>
-            <li>
-                <span>Lorem, ipsum dolor.</span><br>
-                <span>Lorem, ipsum dolor.</span>
-            </li>
-
-            <div class="up30 d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="#" class="btn-edit btn btn-light"><i class="fa fa-pen"></i></a>
-                <a href="#" class="btn-edit btn btn-light"><i class="fa fa-trash"></i></a>
-              </div>
-        </ul>
-        
-    </div>
-
 </div>

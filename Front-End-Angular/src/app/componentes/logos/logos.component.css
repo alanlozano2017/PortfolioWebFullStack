@@ -1,0 +1,45 @@
+
+div.container{
+    padding: 0;
+    width: 100%;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(20, 69, 143);
+}
+
+.redes{
+    margin-right: 0.5em;
+}
+
+#logoAP{
+    width: 150px;
+    
+}
+img{
+    width: 50px;
+    padding: 0.3em;
+}
+.btn{
+    border-width: medium;
+    margin: 1em 0.3em;
+}
+
+/*--para la vista en movil--*/
+@media (max-width: 575px){
+    .container{
+        flex-direction: column;
+    }
+    
+    .redes{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .redes img{
+        margin: 0.2em;
+    }
+}
