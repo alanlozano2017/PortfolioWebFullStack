@@ -18,7 +18,9 @@
                 
     
             </div>
-            <button type="button" class="btn btn-outline-light login">INGRESO</button>
+            <button type="button" class="btn btn-outline-light login" (click)="login()" *ngIf="!isLogged" >Ingreso</button>
+            <button type="button" class="btn btn-outline-light login" (click)="onLogOut()" *ngIf="isLogged">Cerrar Sesión</button>
+
         </div>
     
     </div>

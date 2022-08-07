@@ -13,6 +13,10 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
+import { HomeComponent } from './componentes/home/home.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { interceptorProvider } from './servicios/interceptor-service';
 
 
 @NgModule({
@@ -25,7 +29,9 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
     BannerComponent,
     FooterComponent,
     SkillsComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    HomeComponent,
+    LoginComponent
 
     
   ],
@@ -33,12 +39,14 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     NgCircleProgressModule.forRoot({})
+    
     
 
   ],
   providers: [
-    
+    interceptorProvider
   ],
   bootstrap: [AppComponent]
 })
