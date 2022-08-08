@@ -1,0 +1,30 @@
+<section class="vh-100" style="background-color: rgb(20, 69, 143);">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              
+              <p>Por favor, ingresar nombre de puesto y descripción</p>
+
+                <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="nombreE">Nombre de la tarea</label>
+                        <input type="text" id="nombreE" name="nombreE" class="form-control form-control-lg" [(ngModel)]="nombreE" required/>
+                      </div>
+          
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="descripcionE">Descripción de la tarea</label>
+                        <textarea class="form-control" id="descripcionE" name="descripcionE" rows="4" [(ngModel)]="descripcionE" required></textarea>
+                      </div>
+          
+                      <button class="btn btn-primary btn-lg btn-block" type="submit">Añadir experiencia</button>
+                </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

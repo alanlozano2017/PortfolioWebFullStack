@@ -6,6 +6,14 @@ ul{
     color: blue;
 
 }
+
+.fa-trash{
+    color: red;
+}
+.fa-plus{
+    color:green;
+}
+
 .fa:hover{
     color: #0a58ca;
 }

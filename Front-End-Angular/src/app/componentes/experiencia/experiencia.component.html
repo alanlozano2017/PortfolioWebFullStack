@@ -2,10 +2,11 @@
   <div class="card mat-card">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <button  type="button" class="btn btn-light"><i class="fa fa-plus"></i></button>
+            <button  type="button" class="btn btn-light" routerLink="/nuevaexp" *ngIf="isLogged"><i class="fa fa-plus"></i>
+            </button>
 
             <h1>Expeciencia Laboral</h1>
-
+            <br>
         </div>
 
     </div>
@@ -15,15 +16,27 @@
         </div>
         <div class="col-lg-11">
             <ul id="items-list">
-                <li *ngFor="let experience of experienceList">
-                    <button type="button" class="btn btn-light"><i class="fa fa-trash"></i></button>
-                    <button type="button" class="btn btn-light"><i class="fa fa-pen"></i></button>
-                    <h2>{{experience?.company}} | </h2>  <h3>{{experience?.start}} - {{experience?.end}}</h3>
+                <li *ngFor="let Expeciencia of expe">
                     
-                    <h4>{{experience?.Position}}</h4>
-                    <p>
+                    <button type="button" class="btn btn-light" 
+                    (click)="delete(Expeciencia.id)"
+                     *ngIf="isLogged"
+                        >
+                            <i class="fa fa-trash"></i>
+                    </button>
+                    <button type="button" class="btn btn-light"
+                    routerLink="/editexp/{{Expeciencia.id}}" *ngIf="isLogged"
+                    >
+                        <i class="fa fa-pen"></i>
+                    </button>
+                    <h2>{{Expeciencia.nombreE}}  </h2>
+                    <br>
+                    <h4>{{Expeciencia.descripcionE}}</h4>
+
+                    <br>
+                    <!-- <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta velit, dignissimos dolor ducimus eum illo! Adipisci non ex sint fugit placeat saepe consequatur eos asperiores, vel voluptate dignissimos, sed suscipit.
-                    </p>
+                    </p> -->
                 </li>
             </ul>
         </div>
