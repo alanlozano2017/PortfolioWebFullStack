@@ -2,10 +2,11 @@
 <div class="card mat-card">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <button  type="button" class="btn btn-light"><i class="fa fa-plus"></i></button>
+            <button  type="button" class="btn btn-light" routerLink="/nuevaedu" *ngIf="isLogged"><i class="fa fa-plus"></i>
+            </button>
 
             <h1>Educación</h1>
-
+            <br>
         </div>
 
     </div>
@@ -15,14 +16,34 @@
         </div>
         <div class="col-lg-11">
             <ul id="items-list">
-                <li *ngFor="let educacion of educacionList">
-                    <button type="button" class="btn btn-light"><i class="fa fa-trash"></i></button>
-                    <button type="button" class="btn btn-light"><i class="fa fa-pen"></i></button>
-                    <h2>{{educacion?.school}} | </h2>  <h3>{{educacion?.start}} - {{educacion?.end}}</h3>
-                    <h4>{{educacion?.carrer}}</h4>
-                    <p>
+                <li *ngFor="let Educacion of educacion">
+                    
+                    <button type="button" class="btn btn-light" 
+                    (click)="delete(Educacion.id)"
+                     *ngIf="isLogged"
+                        >
+                            <i class="fa fa-trash"></i>
+                    </button>
+                    <button type="button" class="btn btn-light"
+                    routerLink="/editedu/{{Educacion.id}}" *ngIf="isLogged"
+                    >
+                        <i class="fa fa-pen"></i>
+                    </button>
+                    <img [src]="Educacion.imgE" alt="logo">
+
+                    <h2>{{Educacion.nombreE}}  </h2> - <h3>( {{Educacion.inicioE}} - {{Educacion.finE}} )</h3>
+                    <br>
+                    <h3>{{Educacion.tituloE}}</h3>
+
+                    <br>
+                    
+                    <br>
+                    <h4>{{Educacion.descripcionE}}</h4>
+
+                    <br>
+                    <!-- <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta velit, dignissimos dolor ducimus eum illo! Adipisci non ex sint fugit placeat saepe consequatur eos asperiores, vel voluptate dignissimos, sed suscipit.
-                    </p>
+                    </p> -->
                 </li>
             </ul>
         </div>

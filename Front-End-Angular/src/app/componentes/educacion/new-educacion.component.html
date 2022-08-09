@@ -1,0 +1,46 @@
+<section class="vh-100" style="background-color: rgb(20, 69, 143);">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              
+              <p>Por favor, ingresar nombre de la Institución y descripción de sus estudios</p>
+
+                <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="nombreE">Nombre de la Institución</label>
+                        <input type="text" id="nombreE" name="nombreE" class="form-control form-control-lg" [(ngModel)]="nombreE" required/>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="tituloE">Nombre del Título</label>
+                        <input type="text" id="tituloE" name="tituloE" class="form-control form-control-lg" [(ngModel)]="tituloE" required/>
+                      </div>
+          
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="descripcionE">Descripción de sus estudios</label>
+                        <textarea class="form-control" id="descripcionE" name="descripcionE" rows="4" [(ngModel)]="descripcionE" required></textarea>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="inicioE">Año de ingreso</label>
+                        <input type="number" id="inicioE" name="inicioE" class="form-control form-control-lg" [(ngModel)]="inicioE" required/>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="finE">Año de salida</label>
+                        <input type="number" id="finE" name="finE" class="form-control form-control-lg" [(ngModel)]="finE" required/>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="imgE">Logo de Institución</label>
+                        <input type="text" id="imgE" name="imgE" class="form-control form-control-lg" [(ngModel)]="imgE" />
+                      </div>
+          
+                      <button class="btn btn-primary btn-lg btn-block" type="submit">Añadir educación</button>
+                </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
