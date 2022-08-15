@@ -23,7 +23,9 @@ export class EditEducacionComponent implements OnInit {
       }
     )
   }
-
+  onCancel():void{
+    this.router.navigate(['']);
+  }
   onUpdate(): void{
     const id = this.activatedRoute.snapshot.params['id'];
     this.educacionService.update(id, this.educacion).subscribe(

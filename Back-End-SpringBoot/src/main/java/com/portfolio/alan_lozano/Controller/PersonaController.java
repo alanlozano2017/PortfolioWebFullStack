@@ -27,7 +27,7 @@ public class PersonaController {
     }
     @GetMapping("/personas/traer/perfil")
     public Persona findPersonas(){
-        return ipersonaService.findPersona( (long) 1);
+        return ipersonaService.findPersona( 1);
     }
     
     @PreAuthorize("hasRole('ADMIN')")
@@ -39,7 +39,7 @@ public class PersonaController {
     
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
-    public String deletePersona(@PathVariable Long id){
+    public String deletePersona(@PathVariable int id){
         ipersonaService.deletePersona(id);
         return"la persona fue borrada correctamente";
     }
@@ -47,14 +47,21 @@ public class PersonaController {
     //url:direccion/personas/editar/2?nombre=Mario&apellido=Bross&img=otraimg
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar/{id}")
-    public Persona editPersona(@PathVariable Long id,
+    public Persona editPersona(@PathVariable int id,
                                 @RequestParam("nombre") String nuevoNombre,
                                 @RequestParam("apellido") String nuevoApellido,
-                                @RequestParam("img") String nuevoImg){
+                                @RequestParam("tituloP") String nuevotTitulo,
+                                @RequestParam("descripcionP") String nuevoDescripcion,
+                                @RequestParam("img") String nuevoImg,
+                                @RequestParam("pais") String nuevoPais,
+                                @RequestParam("ubicacion") String ubicacion
+                                ){
         
         Persona persona = ipersonaService.findPersona(id);
         persona.setNombre(nuevoNombre);
         persona.setApellido(nuevoApellido);
+        persona.setTituloP(nuevotTitulo);
+        persona.setDescripcionP(nuevoDescripcion);
         persona.setImg(nuevoImg);
         ipersonaService.savePersona(persona);
         return persona;

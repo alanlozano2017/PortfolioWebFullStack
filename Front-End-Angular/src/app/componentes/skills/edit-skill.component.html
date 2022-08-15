@@ -1,0 +1,50 @@
+<section class="vh-100" style="background-color: rgb(20, 69, 143);">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <button type="button" class="btn btn-light" 
+              (click)="onCancel()"
+               
+                  >
+                      <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+              
+              <p>Por favor, ingresar nombre de Skill y progreso</p>
+
+                <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+                    
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="nombreS">Nombre de Skill</label>
+                        <input type="text" id="nombreS" name="nombreS" class="form-control form-control-lg" [(ngModel)]="skill.nombreS" />
+                      </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="progress">progreso</label>
+                            <input type="number" maxlength="3" 
+                            min="0" max="100" 
+                            required mdInput placeholder="progress" [(ngModel)]="skill.progress"
+                            (change)= "skill.progress < 0 ? skill.progress = 0 : skill.progress; skill.progress > 100 ? skill.progress = 0 : skill.progress;"
+                            name="progress" id="progress">
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="progress">Es Habilidad dura?</label><br>
+                            <input name="type" type="radio" value="false" [(ngModel)]="skill.type"/> Si
+                            <input name="type" type="radio" value="true" [(ngModel)]="skill.type"/> No
+                        </div>
+                        
+                      
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="imgP">Logo de skill</label>
+                        <input type="text" id="imgP" name="imgP" class="form-control form-control-lg" [(ngModel)]="skill.imgS" />
+                      </div>
+          
+                      <button class="btn btn-primary btn-lg btn-block" type="submit">Actualizar Skill</button>
+                </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

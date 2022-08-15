@@ -20,7 +20,7 @@ export class EducacionService {
   }
 
   public save(educacion:  Educacion): Observable<any>{
-    return this.httpClient.post<any>(this.expURL + 'create', educacion );
+    return this.httpClient.post<any>(this.expURL + 'create/', educacion );
   }
 
   public update(id: number, educacion: Educacion): Observable<any>{

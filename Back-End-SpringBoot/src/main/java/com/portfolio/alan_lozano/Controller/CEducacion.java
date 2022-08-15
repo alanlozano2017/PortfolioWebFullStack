@@ -5,9 +5,12 @@
  */
 package com.portfolio.alan_lozano.Controller;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.portfolio.alan_lozano.Dto.DtoEducacion;
 import com.portfolio.alan_lozano.Entity.Educacion;
+import com.portfolio.alan_lozano.Entity.Persona;
 import com.portfolio.alan_lozano.Security.Controller.Mensaje;
+import com.portfolio.alan_lozano.Service.ImpPersonaService;
 import com.portfolio.alan_lozano.Service.SEducacion;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
@@ -30,6 +33,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CEducacion {
     @Autowired
     SEducacion sEducacion;
+    @Autowired
+    ImpPersonaService sPersona;
     
     @GetMapping("/lista")
     public ResponseEntity<List<Educacion>> list(){
@@ -46,18 +51,33 @@ public class CEducacion {
         return new ResponseEntity(educacion, HttpStatus.OK);
     }
     
-    @PostMapping("/create")
+    @PostMapping("/create/")
     public ResponseEntity<?> create(@RequestBody DtoEducacion dtoedu){
+        int persId = dtoedu.getPersona_fk();
         if(StringUtils.isBlank(dtoedu.getNombreE())){
             return new ResponseEntity(new Mensaje("el nombre de la educacion es obligatorio"), HttpStatus.BAD_REQUEST);
         }
+
 //        if(sEducacion.existsByNombreE(dtoedu.getNombreE())){
 //            return new ResponseEntity(new Mensaje("esa educacion ya existe"), HttpStatus.BAD_REQUEST);
 //        }
+        
+        //System.out.println("id prueba" + dtoedu.getPersona().getId()+ "tipo variable");
+        Persona persona = sPersona.findPersona(persId);
+        
         Educacion educacion = new Educacion(dtoedu.getNombreE(), dtoedu.getTituloE(), dtoedu.getDescripcionE(), dtoedu.getInicioE(), dtoedu.getFinE(), dtoedu.getImgE());
+        if(dtoedu.getImgE()==""){
+            educacion.setImgE("../assets/logos/default.png");
+        }
+        educacion.setPersona(persona);
+        
         sEducacion.save(educacion);
         
-        return new ResponseEntity(new Mensaje("educacion agregada"), HttpStatus.OK);
+        persona.addEducaciones(educacion);
+        
+        sPersona.savePersona(persona);
+
+        return new ResponseEntity(new Mensaje("educacion agregada "+dtoedu.toString()), HttpStatus.OK);
     }
     
     @PutMapping("/update/{id}")
@@ -81,7 +101,11 @@ public class CEducacion {
         educacion.setDescripcionE(dtoedu.getDescripcionE());
         educacion.setInicioE(dtoedu.getInicioE());
         educacion.setFinE(dtoedu.getFinE());
-        educacion.setImgE(dtoedu.getImgE());
+        if(dtoedu.getImgE()==""){
+            educacion.setImgE("../assets/logos/default.png");
+        }else{
+            educacion.setImgE(dtoedu.getImgE());
+        }
         
         sEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("educacion actualizada"), HttpStatus.OK);

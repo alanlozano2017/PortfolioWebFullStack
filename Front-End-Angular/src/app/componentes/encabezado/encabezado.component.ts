@@ -11,24 +11,15 @@ import { PersonaService } from './../../servicios/persona.service';
   
 })
 export class EncabezadoComponent implements OnInit {
-  miPorfolio:any={
-    experience:[],
-    education:[],
-    aptitudes:[],
-    sobre_mi:[]
-  };
-  persona: Persona = new Persona("","","");
+  
+  persona: Persona = new Persona(0,"","","","","","","");
 
-  constructor( private datosPorfolio: PorfolioService, public personaService: PersonaService) { }
+  constructor( public personaService: PersonaService) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data =>{
-      console.log(data);
-      this.miPorfolio=data;
-    });
+   
     this.personaService.getPersona().subscribe(data =>{
       this.persona = data;
-    
     });
   }
 

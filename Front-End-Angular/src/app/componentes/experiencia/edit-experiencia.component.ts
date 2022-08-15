@@ -25,7 +25,9 @@ export class EditExperienciaComponent implements OnInit {
     )
 
   }
-
+  onCancel():void{
+    this.router.navigate(['']);
+  }
   onUpdate(): void{
     const id = this.activatedRoute.snapshot.params['id'];
     this.sExperiencia.update(id, this.expLab).subscribe(

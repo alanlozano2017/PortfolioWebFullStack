@@ -5,10 +5,14 @@
  */
 package com.portfolio.alan_lozano.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import org.springframework.lang.Nullable;
 
 @Entity
@@ -16,19 +20,30 @@ public class Educacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Nullable
+    @Column(columnDefinition = "varchar(255) default ''")
     private String nombreE;
-    @Nullable
+    @Column(columnDefinition = "varchar(255) default ''")
     private String tituloE;
-    @Nullable
+    @Column(columnDefinition = "varchar(1000) default ''")
     private String descripcionE;
-    @Nullable
+    @Column(columnDefinition = "integer default 2008")
     private int inicioE;
-    @Nullable
+    @Column(columnDefinition = "integer default 2008")
     private int finE;
-    @Nullable
-    private String imgE;
+    @Column(columnDefinition = "varchar(255)")
+    private String imgE ="../assets/logos/default.png";
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="persona_id")
+    private Persona persona;
 
+    
+    
+    //constructor
+
+    public Educacion() {
+    }
+    
     public Educacion(String nombreE, String tituloE, String descripcionE, int inicioE, int finE, String imgE) {
         this.nombreE = nombreE;
         this.tituloE = tituloE;
@@ -36,14 +51,19 @@ public class Educacion {
         this.inicioE = inicioE;
         this.finE = finE;
         this.imgE = imgE;
+
     }
     
-    //constructor
-
-    public Educacion() {
-    }
 
     //getters y setters
+    
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
 
     public int getId() {
         return id;

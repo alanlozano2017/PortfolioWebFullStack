@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/servicios/token.service';
 import { PorfolioService } from './../../servicios/porfolio.service';
+import { SkillService } from './../../servicios/skill.service';
+import { Skill } from './../../model/skill';
 
 @Component({
   selector: 'app-skills',
@@ -8,22 +11,37 @@ import { PorfolioService } from './../../servicios/porfolio.service';
 })
 export class SkillsComponent implements OnInit {
 
+  skill: Skill[] = [];
+  
 
-  hard_skillslist:any;
-  soft_skillslist:any;
+  constructor( private skillService: SkillService, private tokenService: TokenService) { }
 
-  constructor( private datosPorfolio: PorfolioService) { }
-
+  isLogged = false;
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data =>{
-      console.log("skills");
-      console.log(data.skills);
-      this.hard_skillslist=data.skills[0].hard_skills;
-      console.log("hard_skillslist");
-      console.log(this.hard_skillslist);
-      this.soft_skillslist=data.skills[1].soft_skills;
-      console.log("soft_skillslist");
-      console.log(this.soft_skillslist);
+    this.cargarSkill();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
+  }
+
+  cargarSkill():void{
+    this.skillService.lista().subscribe(data => {
+      this.skill = data
     });
+  }
+
+  delete(id?: number):void{
+    if(id != undefined){
+      this.skillService.delete(id).subscribe(
+        data =>{
+          this.cargarSkill();
+        }, err =>{
+          alert("no se pudo borrar la skill");
+        }
+      )
+    }
   }
 }

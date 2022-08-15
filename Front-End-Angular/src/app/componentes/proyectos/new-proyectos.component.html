@@ -1,0 +1,44 @@
+<section class="vh-100" style="background-color: rgb(20, 69, 143);">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <button type="button" class="btn btn-light" 
+              (click)="onCancel()"
+               
+                  >
+                      <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+              
+              <p>Por favor, ingresar nombre del Proyecto y descripción</p>
+
+                <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="nombreE">Nombre del Proyecto</label>
+                        <input type="text" id="nombreE" name="nombreE" class="form-control form-control-lg" [(ngModel)]="nombreP" required/>
+                      </div>
+                                
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="descripcionP">Descripción del proyecto</label>
+                        <textarea class="form-control" id="descripcionP" name="descripcionP" rows="4" [(ngModel)]="descripcionP" required></textarea>
+                      </div>
+                      
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="urlP">url de repositorio o hosting</label>
+                        <input type="text" id="urlP" name="urlP" class="form-control form-control-lg" [(ngModel)]="urlP" required/>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="imgP">Captura del proyecto</label>
+                        <input type="text" id="imgP" name="imgP" class="form-control form-control-lg" [(ngModel)]="imgP" />
+                      </div>
+          
+                      <button class="btn btn-primary btn-lg btn-block" type="submit">Añadir Proyecto</button>
+                </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

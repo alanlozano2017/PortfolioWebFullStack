@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EducacionService } from './../../servicios/educacion.service';
 import { Educacion } from './../../model/educacion';
+import { PersonaService } from './../../servicios/persona.service';
+import { Persona } from './../../model/persona.model';
 
 @Component({
   selector: 'app-new-educacion',
@@ -15,22 +17,32 @@ export class NewEducacionComponent implements OnInit {
   inicioE: number = 0;
   finE: number = 0;
   imgE:string = '';
+  persona_fk: number = 0;
 
-  constructor(private educacionService: EducacionService, private router: Router) { }
+  constructor(private educacionService: EducacionService, private personaService: PersonaService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  onCancel():void{
+    this.router.navigate(['']);
+  }
   onCreate():void{
-    const edu = new Educacion(this.nombreE, this.tituloE, this.descripcionE, this.inicioE, this.finE, this.imgE);
-    this.educacionService.save(edu).subscribe(data =>{
-      alert("educación añadida");
-      this.router.navigate(['']);
-    }, err =>{
-      alert("falló");
-      this.router.navigate(['']);
-    }
-    )
+    this.personaService.getPersona().subscribe(data =>{
+      this.persona_fk = data.id;
+        const edu = new Educacion(this.nombreE, this.tituloE, this.descripcionE, this.inicioE, this.finE, this.imgE, this.persona_fk);
+      
+        this.educacionService.save(edu).subscribe(data =>{
+          alert("educación añadida");
+          this.router.navigate(['']);
+        }, err =>{
+          alert("falló");
+          this.router.navigate(['']);
+        }
+        )
+
+    });
+
+    
   }
 
 }
