@@ -1,0 +1,20 @@
+.btn{
+    float: right;
+}
+
+
+h2, h3{
+    display: inline;
+    margin-top: 10px;
+}
+h2, h3, h4{
+    margin-top: 10px;
+}
+
+img{
+    background-color:rgb(20, 69, 143);
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}

@@ -1,0 +1,64 @@
+<section class="vh-100" style="background-color: rgb(20, 69, 143);">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <button type="button" class="btn btn-light" 
+              (click)="onCancel()"
+               
+                  >
+                      <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+              
+              <p>Por favor, ingresar nombre de Skill y progreso</p>
+
+                <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="nombreS">Nombre de Skill</label>
+                        <input type="text" id="nombreS" name="nombreS" class="form-control form-control-lg" 
+                        [(ngModel)]="nombreS" required minlength="3" maxlength="60" #name="ngModel"/>
+                        <div *ngIf="name.invalid && ( name.dirty || name.touched)" class="alert alert-danger">
+                            <div *ngIf="name.hasError('required')">
+                                nombre es requerido
+                            </div>
+                            <div *ngIf="name.hasError('minlength')">
+                              nombre debe tener más de 3 caracteres
+                            </div>
+                            <div *ngIf="name.hasError('maxlength')">
+                              nombre no debe tener más de 60 caracteres
+                            </div>
+                            
+                        </div>
+                      </div>
+                                
+                        <!-- <input  type="number" id="progress" name="progress" class="form-control form-control-lg" [(ngModel)]="progress" required/> -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="progress">progreso</label>
+                            <input type="number" maxlength="3" 
+                            min="0" max="100" 
+                            required mdInput placeholder="progress" [(ngModel)]="progress"
+                            (change)= "progress < 0 ? progress = 0 : progress; progress > 100 ? progress = 0 : progress;"
+                            name="progress" id="progress">
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="progress">Es Habilidad dura?</label><br>
+                            <input name="type" type="radio" value="false" [(ngModel)]="type"/> Si
+                            <input name="type" type="radio" value="true" [(ngModel)]="type"/> No
+                        </div>
+                        
+                      
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="imgP">Logo de skill</label>
+                        <input type="text" id="imgP" name="imgP" class="form-control form-control-lg" [(ngModel)]="imgS" maxlength="255"/>
+                      </div>
+          
+                      <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!f.form.valid">Añadir Skill</button>
+                </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

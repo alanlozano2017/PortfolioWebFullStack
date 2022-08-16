@@ -1,15 +1,26 @@
 
 		{
-			"name": "Alan Lozano",
+			"name": "Alan",
 			"image": "1",
-			"position": "Ustudiante de Analísta de Sistemas de Información",
+			"position": "Full Stack Developer",
+			"apellido": "Lozano",
+			"fecha_nacimiento": "15/03/1980",
+			"nacionalidad": "Argentina",
+			"mail": "manuel@gmail.com",
+			"sobre_mi": 
+			[{
+				"p1": "Me gusta constantemente aprender y adquirir conocimientos  de electrónica, diagnóstico en software y mecánica automotriz.",
+
+				"p2": " Así como también realizar rutinas de ejercicios caminatas y trote variados para mejorar el estado físico y calidad de vida.",
+
+				"p3": "A la fecha estoy terminando las carreras de Analista de Sistemas de Información y Programador universitario en la UNViMe."
+			}],
+			"ocupación": "Programador Full Stack",
+			"image_background_header": "https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-black-shading-red-shard-geometry-banner-background-shadingred-debrisred-glowgeometry-image_80184.jpg",
+			"image_perfil": "../../../assets/imagenes/profile.jpg",
+			"id_domicilio":"2",
 			"company":{
 				"name": "",
-				"img":"",
-				"url": "#"
-			},
-			"school":{
-				"name": "UNViNe",
 				"img":"",
 				"url": "#"
 			},
@@ -65,31 +76,57 @@
 					"start": "noviembre 2021",
 					"end": "agosto 2022"
 				}
-			],
-			"aptitudes":[{
-				"mame": "UNViMe",
-				"progress": "Analísta",
-				"confirms": "",
-				"confirmNames":[{
-						"name1":"a"
-
+			]
+			,
+			"skills":[{
+				"hard_skills":[{
+					"name": "java",
+					"progress": "45",
+					"logo": "../assets/skills/java.png"
+				},{
+					"name": "php",
+					"progress": "35",
+					"logo": "../assets/skills/php.png"
+				}
+				,{
+					"name": "HTML",
+					"progress": "60",
+					"logo": "../assets/skills/html.png"
+				},{
+					"name": "JS",
+					"progress": "45",
+					"logo": "../assets/skills/js.png"
+				},{
+					"name": "sql",
+					"progress": "40",
+					"logo": "../assets/skills/sql.png"
+				},{
+					"name": "git",
+					"progress": "35",
+					"logo": "../assets/skills/git.png"
+				},{
+					"name": "css",
+					"progress": "40",
+					"logo": "../assets/skills/CSS.png"
+				},{
+					"name": "emg",
+					"progress": "75",
+					"logo": "../assets/skills/eng.png"
 				}]
+			},{
+				"soft_skills":[{
+					"name": "grupal",
+					"progress": "65",
+					"logo": "../assets/skills/grupal.png"
+				}]
+				
 			}],
+			"proyectos":[{
+				"name": "Aplicación de recordatorios",
+				"descripcion": "RecordatorioApp es una mini aplicación en angular, que sirve para hacer un crud de recordatorios de tareas o eventos pendientes. Desarrollada en una de las prácticas de Argentina Programa con el fin de familiarizarnos con el entorno de desarrollo y las funciones que nos brinda angular.",
+				"captura": "../assets/proyectos/RecordatorioApp.png"
+			}]
+
 			
-			"apellido": "Lozano",
-			"fecha_nacimiento": "15/03/1980",
-			"nacionalidad": "Argentina",
-			"mail": "manuel@gmail.com",
-			"sobre_mi": 
-			[{
-				"p1": "Me gusta constantemente aprender y adquirir conocimientos  de electrónica, diagnóstico en software y mecánica automotriz",
-
-				"p2": " Así como también realizar rutinas de ejercicios caminatas y trote variados para mejorar el estado físico y calidad de vida.",
-
-				"p3": "A la fecha estoy terminando las carreras de Analista de Sistemas de Información y Programador universitario en la UNViMe."
-			}],
-			"ocupación": "Programador Full Stack",
-			"image_background_header": "https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-black-shading-red-shard-geometry-banner-background-shadingred-debrisred-glowgeometry-image_80184.jpg",
-			"image_perfil": "https://i2.wp.com/imagenes.milenio.com/E-yJnq9EhkZhWaU7T_2utkyTymQ=/958x596/smart/https://www.milenio.com/uploads/media/2018/10/05/steve-jobs-perdio-vida-consecuencia_0_199_1193_742.jpg?w=640&ssl=1",
-			"id_domicilio":"2"
+			
 		}

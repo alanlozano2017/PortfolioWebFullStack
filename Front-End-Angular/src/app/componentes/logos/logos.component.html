@@ -1,0 +1,31 @@
+
+    <div class="row">
+        <div class="container">
+            <div class="logo">
+                <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
+                target="_blank"
+                >
+                    <img src="../../../assets/logos/AP-logo2.png" alt="" id="logoAP">
+                </a>
+    
+            </div>
+            <div class="redes">
+                <a href="https://www.linkedin.com/in/alan-lozano-godoy-b22961162/" target="_blank">
+                    <img src="../../../assets/logos/linkedin.png" alt="">
+                </a>
+                <a href="https://www.facebook.com/alanoscarlozano/" target="_blank">
+                    <img src="../../../assets/logos/facebook.png" alt="">
+                </a>
+                <a href="https://www.instagram.com/alanlozanogodoy/" target="_blank">
+                    <img src="../../../assets/logos/instagram.png" alt="">
+                </a>
+                
+    
+            </div>
+            <button type="button" class="btn btn-outline-light login" (click)="login()" *ngIf="!isLogged" >Ingreso</button>
+            <button type="button" class="btn btn-outline-light login" (click)="onLogOut()" *ngIf="isLogged">Cerrar Sesión</button>
+
+        </div>
+    
+    </div>
+

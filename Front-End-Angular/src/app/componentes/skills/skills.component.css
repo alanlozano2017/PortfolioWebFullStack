@@ -1,0 +1,19 @@
+.btn{
+    float: right;
+}
+
+
+h2, h3{
+    display: inline;
+    margin-top: 10px;
+}
+h4{
+    margin-top: 10px;
+}
+
+@media (max-width: 575px){
+    .col-sm-6 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}

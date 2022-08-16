@@ -1,0 +1,61 @@
+<section class="vh-100" style="background-color: rgb(20, 69, 143);">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h3 class="mb-3">Bienvenido</h3>
+              <p>Por favor, ingresar usuario y clave</p>
+
+                <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                    <div class="form-outline mb-4">
+                        <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg" 
+                        [(ngModel)]="nombreUsuario" required minlength="1" maxlength="30" #name="ngModel"/>
+                        <div *ngIf="name.invalid && ( name.dirty || name.touched)" class="alert alert-danger">
+                            <div *ngIf="name.hasError('required')">
+                                usuairo es requerido
+                            </div>
+                            <div *ngIf="name.hasError('minlength')">
+                              usuairo no puede estar vacio
+                            </div>
+                            <div *ngIf="name.hasError('maxlength')">
+                              usuairo no puede tener más de 30 caracteres
+                            </div>
+                            
+                        </div>
+                        <label class="form-label" for="nombreUsuario">Usuario</label>
+                      </div>
+          
+                      <div class="form-outline mb-4">
+                        <input type="password" id="password" name="password" class="form-control form-control-lg" 
+                        [(ngModel)]="password" required minlength="1" maxlength="30" #name2="ngModel"/>
+                        <div *ngIf="name2.invalid && ( name2.dirty || name2.touched)" class="alert alert-danger">
+                            <div *ngIf="name2.hasError('required')">
+                                contraseña es requerida
+                            </div>
+                            <div *ngIf="name2.hasError('minlength')">
+                              contraseña no puede estar vacia
+                            </div>
+                            <div *ngIf="name2.hasError('maxlength')">
+                              contraseña no puede tener más de 30 caracteres
+                            </div>
+                            
+                        </div>
+                        <label class="form-label" for="password">Contraseña</label>
+                      </div>
+          
+                      <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!f.form.valid">Login</button>
+                </form>
+
+
+  
+              
+
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

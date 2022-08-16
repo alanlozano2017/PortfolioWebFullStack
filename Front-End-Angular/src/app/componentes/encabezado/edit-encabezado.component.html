@@ -1,0 +1,142 @@
+<section class="vh-100" style="background-color: rgb(20, 69, 143);" *ngIf="persona">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <button type="button" class="btn btn-light" 
+              (click)="onCancel()"
+               
+                  >
+                      <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+              
+              <p>Por favor, ingresar campos solicitados</p>
+
+                <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control form-control-lg" 
+                        [(ngModel)]="persona.nombre" required minlength="3" maxlength="30" pattern="[ A-Za-z ]*" #name="ngModel"/>
+                        <div *ngIf="name.invalid && ( name.dirty || name.touched)" class="alert alert-danger">
+                            <div *ngIf="name.hasError('required')">
+                                nombre es requerido
+                            </div>
+                            <div *ngIf="name.hasError('minlength')">
+                              nombre debe tener más de 3 caracteres
+                            </div>
+                            <div *ngIf="name.hasError('maxlength')">
+                              nombre no debe tener más de 30 caracteres
+                            </div>
+                            <div *ngIf="name.hasError('pattern')">
+                              nombre debe tener letras con espacios
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" class="form-control form-control-lg" 
+                        [(ngModel)]="persona.apellido" required minlength="3" maxlength="30" pattern="[ A-Za-z ]*" #name1="ngModel"/>
+                        <div *ngIf="name1.invalid && ( name1.dirty || name1.touched)" class="alert alert-danger">
+                            <div *ngIf="name1.hasError('required')">
+                                nombre es requerido
+                            </div>
+                            <div *ngIf="name1.hasError('minlength')">
+                              nombre debe tener más de 3 caracteres
+                            </div>
+                            <div *ngIf="name1.hasError('maxlength')">
+                              nombre no debe tener más de 30 caracteres
+                            </div>
+                            <div *ngIf="name1.hasError('pattern')">
+                              nombre debe tener letras con espacios
+                            </div>
+                        </div>
+
+                    </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="tituloP">Nombre del Título</label>
+                        <input type="text" id="tituloP" name="tituloP" class="form-control form-control-lg" 
+                        [(ngModel)]="persona.tituloP" required minlength="3" maxlength="30" pattern="[ A-Za-z ]*" #name2="ngModel"/>
+                        <div *ngIf="name2.invalid && ( name2.dirty || name2.touched)" class="alert alert-danger">
+                            <div *ngIf="name2.hasError('required')">
+                                nombre es requerido
+                            </div>
+                            <div *ngIf="name2.hasError('minlength')">
+                              nombre debe tener más de 3 caracteres
+                            </div>
+                            <div *ngIf="name2.hasError('maxlength')">
+                              nombre no debe tener más de 30 caracteres
+                            </div>
+                            <div *ngIf="name2.hasError('pattern')">
+                              nombre debe tener letras con espacios
+                            </div>
+                        </div>
+                      </div>
+          
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="descripcionP">Descripción</label>
+                        <textarea class="form-control" id="descripcionP" name="descripcionP" rows="5" 
+                        [(ngModel)]="persona.descripcionP" maxlength="1000" #name3="ngModel">
+                        </textarea>
+                        <div *ngIf="name3.invalid && ( name3.dirty || name3.touched)" class="alert alert-danger">
+                            <div *ngIf="name3.hasError('maxlength')">
+                              descripción no debe tener más de 1000 caracteres
+                            </div>
+                        </div>
+
+                      </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="pais">País</label>
+                            <input type="text" id="pais" name="pais" class="form-control form-control-lg" 
+                            [(ngModel)]="persona.pais" required minlength="3" maxlength="30" pattern="[ A-Za-z ]*" #name4="ngModel"/>
+                            <div *ngIf="name4.invalid && ( name4.dirty || name4.touched)" class="alert alert-danger">
+                                <div *ngIf="name4.hasError('required')">
+                                    país es requerido
+                                </div>
+                                <div *ngIf="name4.hasError('minlength')">
+                                  país debe tener más de 3 caracteres
+                                </div>
+                                <div *ngIf="name4.hasError('maxlength')">
+                                  país no debe tener más de 30 caracteres
+                                </div>
+                                <div *ngIf="name4.hasError('pattern')">
+                                  país debe tener letras con espacios
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="ubicacion">Ubicación</label>
+                            <input type="text" id="ubicacion" name="ubicacion" class="form-control form-control-lg" 
+                            [(ngModel)]="persona.ubicacion" required minlength="3" maxlength="30" #name5="ngModel"/>
+                            <div *ngIf="name5.invalid && ( name5.dirty || name5.touched)" class="alert alert-danger">
+                                <div *ngIf="name5.hasError('required')">
+                                    ubicación es requerido
+                                </div>
+                                <div *ngIf="name5.hasError('minlength')">
+                                  ubicación debe tener más de 3 caracteres
+                                </div>
+                                <div *ngIf="name5.hasError('maxlength')">
+                                  ubicación no debe tener más de 30 caracteres
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="img">Foto de Perfil</label>
+                        <input type="text" id="img" name="img" class="form-control form-control-lg" [(ngModel)]="persona.img" maxlength="255" />
+                      </div>
+          
+                      <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!f.form.valid">Actualizar Persona</button>
+                </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,12 @@
+.btn{
+    float: right;
+}
+
+
+h2, h3{
+    display: inline;
+    margin-top: 10px;
+}
+h4{
+    margin-top: 10px;
+}

@@ -1,0 +1,41 @@
+<div class="card mat-card">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <button  type="button" class="btn btn-light" routerLink="/nuevoproyecto" *ngIf="isLogged"><i class="fa fa-plus"></i></button>
+            <h1>Proyectos</h1>
+        </div>
+    </div>
+
+    <div *ngFor="let Proyect of proyect"  class="contenedor row">
+        <div class="col-sm-12 col-md-12 col-lg-12 ">
+            <button type="button" class="btn btn-light"
+            (click)="delete(Proyect.id)"
+                     *ngIf="isLogged"
+            >
+            <i class="fa fa-trash"></i></button>
+            <button type="button" class="btn btn-light"
+            routerLink="/editproyecto/{{Proyect.id}}" *ngIf="isLogged"
+            >
+                <i class="fa fa-pen"></i></button>
+
+            <h2>{{Proyect?.nombreP}} </h2> 
+        </div>
+        
+        <div class="col-sm-12 col-md-5 col-lg-5 parte1">
+            
+            <p>
+                {{Proyect?.descripcionP}}
+            </p>
+        </div>
+        <div class="col-sm-12 col-md-7 col-lg-7  parte2">
+            <a href="{{Proyect?.urlP}}" target="_blank">
+                <img src="{{Proyect?.imgP}}" class="img-fluid img-proyecto">
+            </a>
+
+        </div>
+        <p> </p>
+    </div>
+
+    
+
+</div>
