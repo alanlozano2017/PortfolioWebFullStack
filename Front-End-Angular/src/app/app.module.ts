@@ -15,7 +15,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { interceptorProvider } from './servicios/interceptor-service';
 import { NewExperienciaComponent } from './componentes/experiencia/new-experiencia.component';
 import { EditExperienciaComponent } from './componentes/experiencia/edit-experiencia.component';
@@ -25,6 +25,7 @@ import { NewProyectosComponent } from './componentes/proyectos/new-proyectos.com
 import { EditProyectosComponent } from './componentes/proyectos/edit-proyectos.component';
 import { NewSkillComponent } from './componentes/skills/new-skill.component';
 import { EditSkillComponent } from './componentes/skills/edit-skill.component';
+import { EditEncabezadoComponent } from './componentes/encabezado/edit-encabezado.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { EditSkillComponent } from './componentes/skills/edit-skill.component';
     NewProyectosComponent,
     EditProyectosComponent,
     NewSkillComponent,
-    EditSkillComponent
+    EditSkillComponent,
+    EditEncabezadoComponent
 
     
   ],
@@ -56,6 +58,7 @@ import { EditSkillComponent } from './componentes/skills/edit-skill.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgCircleProgressModule.forRoot({})
     
     

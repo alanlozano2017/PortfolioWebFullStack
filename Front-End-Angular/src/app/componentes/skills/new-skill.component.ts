@@ -11,6 +11,7 @@ import { SkillService } from './../../servicios/skill.service';
   styleUrls: ['./new-skill.component.css']
 })
 export class NewSkillComponent implements OnInit {
+ 
   nombreS: string = '';
   imgS: string = '';
   progress: number = 0;

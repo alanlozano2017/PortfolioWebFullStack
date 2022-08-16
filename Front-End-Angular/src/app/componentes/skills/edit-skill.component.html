@@ -17,13 +17,26 @@
                     
                       <div class="form-outline mb-4">
                         <label class="form-label" for="nombreS">Nombre de Skill</label>
-                        <input type="text" id="nombreS" name="nombreS" class="form-control form-control-lg" [(ngModel)]="skill.nombreS" />
+                        <input type="text" id="nombreS" name="nombreS" class="form-control form-control-lg" 
+                        [(ngModel)]="skill.nombreS" required minlength="3" maxlength="60" #name="ngModel"/>
+                        <div *ngIf="name.invalid && ( name.dirty || name.touched)" class="alert alert-danger">
+                            <div *ngIf="name.hasError('required')">
+                                nombre es requerido
+                            </div>
+                            <div *ngIf="name.hasError('minlength')">
+                              nombre debe tener más de 3 caracteres
+                            </div>
+                            <div *ngIf="name.hasError('maxlength')">
+                              nombre no debe tener más de 60 caracteres
+                            </div>
+                            
+                        </div>
                       </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="progress">progreso</label>
                             <input type="number" maxlength="3" 
                             min="0" max="100" 
-                            required mdInput placeholder="progress" [(ngModel)]="skill.progress"
+                            required [(ngModel)]="skill.progress"
                             (change)= "skill.progress < 0 ? skill.progress = 0 : skill.progress; skill.progress > 100 ? skill.progress = 0 : skill.progress;"
                             name="progress" id="progress">
                         </div>
@@ -36,10 +49,10 @@
                       
                       <div class="form-outline mb-4">
                         <label class="form-label" for="imgP">Logo de skill</label>
-                        <input type="text" id="imgP" name="imgP" class="form-control form-control-lg" [(ngModel)]="skill.imgS" />
+                        <input type="text" id="imgP" name="imgP" class="form-control form-control-lg" [(ngModel)]="skill.imgS" maxlength="255"/>
                       </div>
           
-                      <button class="btn btn-primary btn-lg btn-block" type="submit">Actualizar Skill</button>
+                      <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!f.form.valid">Actualizar Skill</button>
                 </form>
 
             </div>

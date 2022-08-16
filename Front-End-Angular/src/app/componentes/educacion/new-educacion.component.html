@@ -16,31 +16,89 @@
                 <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
                     <div class="form-outline mb-4">
                         <label class="form-label" for="nombreE">Nombre de la Institución</label>
-                        <input type="text" id="nombreE" name="nombreE" class="form-control form-control-lg" [(ngModel)]="nombreE" required/>
+                        <input type="text" id="nombreE" name="nombreE" class="form-control form-control-lg" 
+                        [(ngModel)]="nombreE" required minlength="3" maxlength="60" #name="ngModel"/>
+                        <div *ngIf="name.invalid && ( name.dirty || name.touched)" class="alert alert-danger">
+                            <div *ngIf="name.hasError('required')">
+                                nombre es requerido
+                            </div>
+                            <div *ngIf="name.hasError('minlength')">
+                              nombre debe tener más de 3 caracteres
+                            </div>
+                            <div *ngIf="name.hasError('maxlength')">
+                              nombre no debe tener más de 60 caracteres
+                            </div>
+                            
+                        </div>
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="tituloE">Nombre del Título</label>
-                        <input type="text" id="tituloE" name="tituloE" class="form-control form-control-lg" [(ngModel)]="tituloE" required/>
+                        <input type="text" id="tituloE" name="tituloE" class="form-control form-control-lg" 
+                        [(ngModel)]="tituloE" required minlength="3" maxlength="60" #name1="ngModel"/>
+                        <div *ngIf="name1.invalid && ( name1.dirty || name1.touched)" class="alert alert-danger">
+                            <div *ngIf="name1.hasError('required')">
+                                titulo es requerido
+                            </div>
+                            <div *ngIf="name1.hasError('minlength')">
+                              titulo debe tener más de 3 caracteres
+                            </div>
+                            <div *ngIf="name1.hasError('maxlength')">
+                              titulo no debe tener más de 60 caracteres
+                            </div>
+                            
+                        </div>
                       </div>
           
                       <div class="form-outline mb-4">
                         <label class="form-label" for="descripcionE">Descripción de sus estudios</label>
-                        <textarea class="form-control" id="descripcionE" name="descripcionE" rows="4" [(ngModel)]="descripcionE" required></textarea>
+                        <textarea class="form-control" id="descripcionE" name="descripcionE" rows="4" 
+                        [(ngModel)]="descripcionE" maxlength="1000"></textarea>
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="inicioE">Año de ingreso</label>
-                        <input type="number" id="inicioE" name="inicioE" class="form-control form-control-lg" [(ngModel)]="inicioE" required/>
+                        <input type="text" id="inicioE" name="inicioE" class="form-control form-control-lg" 
+                        [(ngModel)]="inicioE" required minlength="3" maxlength="4" pattern="[ 0-9 ]*" #name2="ngModel"/>
+                        <div *ngIf="name2.invalid && ( name2.dirty || name2.touched)" class="alert alert-danger">
+                            <div *ngIf="name2.hasError('required')">
+                                año es requerido
+                            </div>
+                            <div *ngIf="name2.hasError('minlength')">
+                              año debe tener más de 3 cifras
+                            </div>
+                            <div *ngIf="name2.hasError('maxlength')">
+                              año no debe tener 4 o menos cifras
+                            </div>
+                            <div *ngIf="name2.hasError('pattern')">
+                              año debe tener números
+                            </div>
+                        </div>
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="finE">Año de salida</label>
-                        <input type="number" id="finE" name="finE" class="form-control form-control-lg" [(ngModel)]="finE" required/>
+                        <input type="text" id="finE" name="finE" class="form-control form-control-lg" 
+                        [(ngModel)]="finE" required minlength="3" maxlength="4" pattern="[ 0-9 ]*" #name3="ngModel"/>
+                        <div *ngIf="name3.invalid && ( name3.dirty || name3.touched)" class="alert alert-danger">
+                            <div *ngIf="name3.hasError('required')">
+                                año es requerido
+                            </div>
+                            <div *ngIf="name3.hasError('minlength')">
+                              año debe tener más de 3 cifras
+                            </div>
+                            <div *ngIf="name3.hasError('maxlength')">
+                              año no debe tener 4 o menos cifras
+                            </div>
+                            <div *ngIf="name3.hasError('pattern')">
+                              año debe tener números
+                            </div>
+                        </div>
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="imgE">Logo de Institución</label>
-                        <input type="text" id="imgE" name="imgE" class="form-control form-control-lg" [(ngModel)]="imgE" />
+                        <input type="text" id="imgE" name="imgE" class="form-control form-control-lg" 
+                        [(ngModel)]="imgE" maxlength="255"/>
                       </div>
           
-                      <button class="btn btn-primary btn-lg btn-block" type="submit">Añadir educación</button>
+                      <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!f.form.valid">Añadir educación</button>
                 </form>
 
             </div>

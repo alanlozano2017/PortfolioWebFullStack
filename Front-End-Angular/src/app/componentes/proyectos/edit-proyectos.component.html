@@ -16,24 +16,37 @@
                 <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
                     <div class="form-outline mb-4">
                         <label class="form-label" for="nombreP">Nombre del Proyecto</label>
-                        <input type="text" id="nombreP" name="nombreP" class="form-control form-control-lg" [(ngModel)]="proyect.nombreP" required/>
+                        <input type="text" id="nombreP" name="nombreP" class="form-control form-control-lg" 
+                        [(ngModel)]="proyect.nombreP" required minlength="3" maxlength="60" #name1="ngModel"/>
+                        <div *ngIf="name1.invalid && ( name1.dirty || name1.touched)" class="alert alert-danger">
+                            <div *ngIf="name1.hasError('required')">
+                                titulo es requerido
+                            </div>
+                            <div *ngIf="name1.hasError('minlength')">
+                              titulo debe tener más de 3 caracteres
+                            </div>
+                            <div *ngIf="name1.hasError('maxlength')">
+                              titulo no debe tener más de 60 caracteres
+                            </div>
+                            
+                        </div>
                       </div>
           
                       <div class="form-outline mb-4">
                         <label class="form-label" for="descripcionP">Descripción de su educación</label>
-                        <textarea class="form-control" id="descripcionP" name="descripcionP" rows="4" [(ngModel)]="proyect.descripcionP" required></textarea>
+                        <textarea class="form-control" id="descripcionP" name="descripcionP" rows="4" [(ngModel)]="proyect.descripcionP" maxilength="1000"></textarea>
                       </div>
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="urlP">url del repositorio o hosting</label>
-                        <input type="text" id="urlP" name="urlP" class="form-control form-control-lg" [(ngModel)]="proyect.urlP" required/>
+                        <input type="text" id="urlP" name="urlP" class="form-control form-control-lg" [(ngModel)]="proyect.urlP" maxilength="255"/>
                       </div>
                       <div class="form-outline mb-4">
                         <label class="form-label" for="imgP">Captura del proyecto</label>
-                        <input type="text" id="imgP" name="imgP" class="form-control form-control-lg" [(ngModel)]="proyect.imgP" />
+                        <input type="text" id="imgP" name="imgP" class="form-control form-control-lg" [(ngModel)]="proyect.imgP" maxilength="255" />
                       </div>
           
-                      <button class="btn btn-primary btn-lg btn-block" type="submit">Actualizar Proyecto</button>
+                      <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!f.form.valid">Actualizar Proyecto</button>
                 </form>
 
             </div>

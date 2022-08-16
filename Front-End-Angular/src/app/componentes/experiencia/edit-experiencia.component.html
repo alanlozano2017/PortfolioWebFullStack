@@ -16,15 +16,29 @@
                 <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
                     <div class="form-outline mb-4">
                         <label class="form-label" for="nombreE">Nombre de la tarea</label>
-                        <input type="text" id="nombreE" name="nombreE" class="form-control form-control-lg" [(ngModel)]="expLab.nombreE" required/>
+                        <input type="text" id="nombreE" name="nombreE" class="form-control form-control-lg" 
+                        [(ngModel)]="expLab.nombreE" required minlength="3" maxlength="60" #name="ngModel"/>
+                        <div *ngIf="name.invalid && ( name.dirty || name.touched)" class="alert alert-danger">
+                            <div *ngIf="name.hasError('required')">
+                                nombre es requerido
+                            </div>
+                            <div *ngIf="name.hasError('minlength')">
+                              nombre debe tener más de 3 caracteres
+                            </div>
+                            <div *ngIf="name.hasError('maxlength')">
+                              nombre no debe tener más de 60 caracteres
+                            </div>
+                            
+                        </div>
                       </div>
           
                       <div class="form-outline mb-4">
                         <label class="form-label" for="descripcionE">Descripción de la tarea</label>
-                        <textarea class="form-control" id="descripcionE" name="descripcionE" rows="4" [(ngModel)]="expLab.descripcionE" required></textarea>
+                        <textarea class="form-control" id="descripcionE" name="descripcionE" rows="4" 
+                        [(ngModel)]="expLab.descripcionE" maxilength="1000" ></textarea>
                       </div>
           
-                      <button class="btn btn-primary btn-lg btn-block" type="submit">Actualizar experiencia</button>
+                      <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!f.form.valid">Actualizar experiencia</button>
                 </form>
 
             </div>

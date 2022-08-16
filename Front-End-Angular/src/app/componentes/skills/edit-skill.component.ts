@@ -9,14 +9,17 @@ import { SkillService } from './../../servicios/skill.service';
   styleUrls: ['./edit-skill.component.css']
 })
 export class EditSkillComponent implements OnInit {
-skill: Skill = null;
+
+skill: Skill = new Skill("", "", 0 , false, 1 );
   constructor( private skillService: SkillService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
     this.skillService.detail(id).subscribe(
       data =>{
+        console.log(this.skill);
         this.skill = data;
+        console.log(this.skill);
       }, err =>{
         alert("error al modificar la skill");
         this.router.navigate(['']);
