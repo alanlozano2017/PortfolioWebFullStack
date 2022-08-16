@@ -30,6 +30,7 @@ public class PersonaController {
     public List<Persona> getPersonas(){
         return ipersonaService.gerPersonas();
     }
+    @PreAuthorize("permitAll()") 
     @GetMapping("/personas/traer/perfil")
     public Persona findPersonas(){
         return ipersonaService.findPersona( 1);
