@@ -17,9 +17,7 @@ skill: Skill = new Skill("", "", 0 , false, 1 );
     const id = this.activatedRoute.snapshot.params['id'];
     this.skillService.detail(id).subscribe(
       data =>{
-        console.log(this.skill);
         this.skill = data;
-        console.log(this.skill);
       }, err =>{
         alert("error al modificar la skill");
         this.router.navigate(['']);

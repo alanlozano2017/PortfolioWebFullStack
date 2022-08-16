@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Proyect } from './../model/proyect';
 
 
@@ -8,7 +9,8 @@ import { Proyect } from './../model/proyect';
   providedIn: 'root'
 })
 export class ProyectService {
-  expURL = 'http://localhost:8080/proyecto/'
+  
+  private expURL = 'https://app-lozano.herokuapp.com/proyecto/';
 
   constructor(private httpClient: HttpClient) { }
 
