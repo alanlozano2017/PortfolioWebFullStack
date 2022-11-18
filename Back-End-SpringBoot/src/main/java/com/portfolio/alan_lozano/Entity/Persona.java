@@ -4,15 +4,14 @@ package com.portfolio.alan_lozano.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -37,18 +36,7 @@ public class Persona {
     private String img;
     private String pais;
     private String ubicacion;
-    @JsonIgnore
-    @OneToMany( mappedBy = "persona")
-    private List<Experiencia> experiencias;
-    @JsonIgnore
-    @OneToMany( mappedBy = "persona")
-    private List<Educacion> educaciones;
-    @JsonIgnore
-    @OneToMany( mappedBy = "persona")
-    private List<Skill> skills;
-    @JsonIgnore
-    @OneToMany( mappedBy = "persona")
-    private List<Proyecto> proyectos;
+    
 
     public Persona() {
     }
@@ -61,49 +49,6 @@ public class Persona {
         this.img = img;
         this.pais = pais;
         this.ubicacion = ubicacion;
-    }
-
-    
-    
-
-    public void addExperiencias(Experiencia experiencia) {
-        if(experiencia != null ){
-            if (experiencias == null){
-                experiencias = new ArrayList<>();
-            }
-            experiencias.add(experiencia);
-            //experiencia.setPersona(this);
-        }
-    }
-    
-    public void addEducaciones(Educacion educacion) {
-        if(educacion != null ){
-        if (educaciones == null){
-            educaciones = new ArrayList<>();
-        }
-        educaciones.add(educacion);
-        //educacion.setPersona(this);
-        }
-    }
-    
-    public void addSkills(Skill skill) {
-        if(skill != null ){
-        if (skills == null){
-            skills = new ArrayList<>();
-        }
-        skills.add(skill);
-        //skill.setPersona(this);
-        }
-    }
-    
-    public void addProyectos(Proyecto proyecto) {
-        if(proyecto != null ){
-        if (proyectos == null){
-            proyectos = new ArrayList<>();
-        }
-        proyectos.add(proyecto);
-        //proyecto.setPersona(this);
-        }
     }
     
     public String getPais() {
@@ -170,41 +115,5 @@ public class Persona {
         this.img = img;
     }
 
-    public List<Experiencia> getExperiencias() {
-        return experiencias;
-    }
-
-    public void setExperiencias(List<Experiencia> experiencias) {
-        this.experiencias = experiencias;
-    }
-    
-
-    public List<Educacion> getEducaciones() {
-        return educaciones;
-    }
-
-    public void setEducaciones(List<Educacion> educaciones) {
-        this.educaciones = educaciones;
-    }
-
-    public List<Skill> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
-    }
-
-    public List<Proyecto> getProyectos() {
-        return proyectos;
-    }
-
-    public void setProyectos(List<Proyecto> proyectos) {
-        this.proyectos = proyectos;
-    }
-
-    
-    
-    
     
 }

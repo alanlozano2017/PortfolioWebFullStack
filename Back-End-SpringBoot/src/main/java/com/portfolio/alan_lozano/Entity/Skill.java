@@ -11,8 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Skill {
@@ -28,10 +27,6 @@ public class Skill {
     private int progress;
     @Column(columnDefinition = "boolean default false")
     private boolean type;
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="persona_id", nullable=false)
-    private Persona persona;
     
     //constructores
     public Skill() {
@@ -45,13 +40,7 @@ public class Skill {
     }
 
     //getters y setters
-     public Persona getPersona() {
-        return persona;
-    }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }   
     public int getId() {
         return id;
     }

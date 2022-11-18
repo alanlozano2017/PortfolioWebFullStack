@@ -8,11 +8,11 @@ export class Educacion {
     inicioE: number;
     finE: number;
     imgE:string;
-    persona_fk: number;
+
 
 
     constructor(nombreE: string, tituloE: string, descripcionE: string, 
-        inicioE: number, finE: number, imgE:string, persona_fk: number ){
+        inicioE: number, finE: number, imgE:string ){
 
             this.nombreE = nombreE;
             this.tituloE = tituloE;
@@ -20,7 +20,6 @@ export class Educacion {
             this.inicioE = inicioE;
             this.finE = finE;
             this.imgE = imgE;
-            this.persona_fk = persona_fk;
 
     }
 }

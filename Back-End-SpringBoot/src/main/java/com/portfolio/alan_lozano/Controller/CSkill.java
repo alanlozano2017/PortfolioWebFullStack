@@ -7,7 +7,7 @@ package com.portfolio.alan_lozano.Controller;
 
 
 import com.portfolio.alan_lozano.Dto.DtoSkill;
-import com.portfolio.alan_lozano.Entity.Persona;
+
 import com.portfolio.alan_lozano.Entity.Skill;
 import com.portfolio.alan_lozano.Security.Controller.Mensaje;
 import com.portfolio.alan_lozano.Service.ImpPersonaService;
@@ -55,27 +55,24 @@ public class CSkill {
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoSkill dtoskill){
-        int persId = dtoskill.getPersona_fk();
+        
         if(StringUtils.isBlank(dtoskill.getNombreS())){
             return new ResponseEntity(new Mensaje("el nombre de la skill es obligatorio"), HttpStatus.BAD_REQUEST);
         }
 //        if(sEducacion.existsByNombreE(dtoedu.getNombreE())){
 //            return new ResponseEntity(new Mensaje("esa educacion ya existe"), HttpStatus.BAD_REQUEST);
 //        }
-        Persona persona = sPersona.findPersona(persId);
+        
 
         Skill skill = new Skill(dtoskill.getNombreS(), dtoskill.getImgS(), dtoskill.getProgress(), dtoskill.getType());
         
         if(dtoskill.getImgS()==""){
             skill.setImgS("../assets/logos/default.png");
         }
-        skill.setPersona(persona);
+        
         
         sSkill.save(skill);
         
-        persona.addSkills(skill);
-        
-        sPersona.savePersona(persona);
         
         return new ResponseEntity(new Mensaje("skill agregada"), HttpStatus.OK);
     }

@@ -11,8 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Proyecto {
@@ -28,11 +27,7 @@ public class Proyecto {
     private String urlP ="#";
     @Column(columnDefinition = "varchar(255) default '../assets/proyectos/imgdefault.jpg'")
     private String imgP = "../assets/proyectos/imgdefault.jpg";
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="persona_id", nullable=false)
-    private Persona persona;
-    
+
     public Proyecto() {
     }
 
@@ -43,13 +38,7 @@ public class Proyecto {
         this.imgP = imgP;
     }
 
-    public Persona getPersona() {
-        return persona;
-    }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
     
     public int getId() {
         return id;

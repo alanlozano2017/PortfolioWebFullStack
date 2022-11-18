@@ -11,8 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import org.springframework.lang.Nullable;
 
 @Entity
@@ -32,10 +31,6 @@ public class Educacion {
     private int finE;
     @Column(columnDefinition = "varchar(255)")
     private String imgE ="../assets/logos/default.png";
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="persona_id")
-    private Persona persona;
 
     
     
@@ -56,14 +51,7 @@ public class Educacion {
     
 
     //getters y setters
-    
-    public Persona getPersona() {
-        return persona;
-    }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
 
     public int getId() {
         return id;

@@ -16,7 +16,7 @@ export class NewSkillComponent implements OnInit {
   imgS: string = '';
   progress: number = 0;
   type: boolean = false;
-  persona_fk: number = 0;
+
 
   constructor(private skillService: SkillService, private personaService: PersonaService, private router: Router) { }
 
@@ -27,8 +27,8 @@ export class NewSkillComponent implements OnInit {
   }
   onCreate():void{
     this.personaService.getPersona().subscribe(data =>{
-      this.persona_fk = data.id;
-        const sk = new Skill(this.nombreS, this.imgS, this.progress, this.type, this.persona_fk);
+      
+        const sk = new Skill(this.nombreS, this.imgS, this.progress, this.type);
       
         this.skillService.save(sk).subscribe(data =>{
           alert("skill añadida");

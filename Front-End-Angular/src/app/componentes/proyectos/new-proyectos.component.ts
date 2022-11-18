@@ -15,7 +15,7 @@ export class NewProyectosComponent implements OnInit {
     descripcionP: string = '';
     urlP: string = '';
     imgP: string = '';
-    persona_fk: number = 0;
+ 
 
 
   constructor(private proyectService: ProyectService, private personaService: PersonaService, private router: Router) { }
@@ -28,8 +28,8 @@ export class NewProyectosComponent implements OnInit {
   }
   onCreate():void{
     this.personaService.getPersona().subscribe(data =>{
-      this.persona_fk = data.id;
-        const pro = new Proyect(this.nombreP, this.descripcionP, this.urlP, this.imgP, this.persona_fk);
+      
+        const pro = new Proyect(this.nombreP, this.descripcionP, this.urlP, this.imgP);
       
         this.proyectService.save(pro).subscribe(data =>{
           alert("proyecto añadido");

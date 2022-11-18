@@ -14,30 +14,24 @@ public class DtoSkill {
     private String imgS;
     private int progress;
     private boolean type;
-    private int persona_fk;
+
 
     //constructor
 
     public DtoSkill() {
     }
 
-    public DtoSkill(String nombreS, String imgS, int progress, boolean type, int persona_fk) {
+    public DtoSkill(String nombreS, String imgS, int progress, boolean type) {
         this.nombreS = nombreS;
         this.imgS = imgS;
         this.progress = progress;
         this.type = type;
-        this.persona_fk = persona_fk;
+        
     }
     
     //getters y setters
     
-    public int getPersona_fk() {
-        return persona_fk;
-    }
-
-    public void setPersona_fk(int persona_fk) {
-        this.persona_fk = persona_fk;
-    }
+    
 
     public String getNombreS() {
         return nombreS;

@@ -10,7 +10,7 @@ import { Proyect } from './../model/proyect';
 })
 export class ProyectService {
   
-  private expURL = 'https://app-lozano.herokuapp.com/proyecto/';
+  private expURL = 'https://a-lozano.herokuapp.com/proyecto/';
 
   constructor(private httpClient: HttpClient) { }
 

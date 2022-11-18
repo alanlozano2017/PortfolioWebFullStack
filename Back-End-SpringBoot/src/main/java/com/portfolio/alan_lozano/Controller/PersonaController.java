@@ -58,11 +58,7 @@ public class PersonaController {
         if(ipersonaService.findPersona(id)== null){
             return new ResponseEntity(new Mensaje("el id no existe"+id), HttpStatus.NOT_FOUND);
         }
-        //compara nombre de educaciones
-        /*if (sEducacion.existsByNombreE(dtoedu.getNombreE()) 
-            && sEducacion.getByNombreE(dtoedu.getNombreE()).get().getId() != id) {
-            return new ResponseEntity(new Mensaje("esa educacion ya existe"), HttpStatus.BAD_REQUEST);
-        }*/
+        
         //no puede estar vacio
         if (StringUtils.isBlank(dtopersona.getNombre())) {
             return new ResponseEntity(new Mensaje("el nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -87,26 +83,6 @@ public class PersonaController {
         
     }
     
-//    public Persona editPersona(@PathVariable int id,
-//                                @RequestParam("nombre") String nuevoNombre,
-//                                @RequestParam("apellido") String nuevoApellido,
-//                                @RequestParam("tituloP") String nuevotTitulo,
-//                                @RequestParam("descripcionP") String nuevoDescripcion,
-//                                @RequestParam("img") String nuevoImg,
-//                                @RequestParam("pais") String nuevoPais,
-//                                @RequestParam("ubicacion") String ubicacion
-//                                ){
-//        
-//        Persona persona = ipersonaService.findPersona(id);
-//        persona.setNombre(nuevoNombre);
-//        persona.setApellido(nuevoApellido);
-//        persona.setTituloP(nuevotTitulo);
-//        persona.setDescripcionP(nuevoDescripcion);
-//        persona.setImg(nuevoImg);
-//        
-//        ipersonaService.savePersona(persona);
-//        return persona;
-//    }
     
     
 }

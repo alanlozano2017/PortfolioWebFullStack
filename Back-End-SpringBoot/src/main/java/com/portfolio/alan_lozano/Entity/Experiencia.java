@@ -11,8 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Experiencia {
@@ -23,10 +22,7 @@ public class Experiencia {
     private String nombreE;
     @Column(columnDefinition = "varchar(1000) default ''")
     private String descripcionE;
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="persona_id", nullable=false)
-    private Persona persona;
+
     //constructor
 
     
@@ -41,13 +37,6 @@ public class Experiencia {
     
     //getters y setters
     
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
 
     public int getId() {
         return id;

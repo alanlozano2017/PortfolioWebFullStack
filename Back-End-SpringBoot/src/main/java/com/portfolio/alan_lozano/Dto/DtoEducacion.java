@@ -6,7 +6,7 @@
 package com.portfolio.alan_lozano.Dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.portfolio.alan_lozano.Entity.Persona;
+
 import javax.validation.constraints.NotBlank;
 
 
@@ -20,7 +20,7 @@ public class DtoEducacion {
     private int inicioE;
     private int finE;
     private String imgE;
-    private int persona_fk;
+
 
     //private Persona persona;
 
@@ -32,38 +32,23 @@ public class DtoEducacion {
     public DtoEducacion() {
     }
     
-    public DtoEducacion(String nombreE, String tituloE, String descripcionE, int inicioE, int finE, String imgE, int persona_fk) {
+    public DtoEducacion(String nombreE, String tituloE, String descripcionE, int inicioE, int finE, String imgE) {
         this.nombreE = nombreE;
         this.tituloE = tituloE;
         this.descripcionE = descripcionE;
         this.inicioE = inicioE;
         this.finE = finE;
         this.imgE = imgE;
-        this.persona_fk = persona_fk;
+
     }
 
     @Override
     public String toString() {
-        return "DtoEducacion{" + "nombreE=" + nombreE + ", tituloE=" + tituloE + ", descripcionE=" + descripcionE + ", inicioE=" + inicioE + ", finE=" + finE + ", imgE=" + imgE + ", persona_fk=" + persona_fk + '}';
+        return "DtoEducacion{" + "nombreE=" + nombreE + ", tituloE=" + tituloE + ", descripcionE=" + descripcionE + ", inicioE=" + inicioE + ", finE=" + finE + ", imgE=" + imgE + '}';
     }
 
     
-    //getters y setters
-    
-    public int getPersona_fk() {
-        return persona_fk;
-    }
 
-    public void setPersona_fk(int persona_fk) {
-        this.persona_fk = persona_fk;
-    }
-    
-//    public void setPersona(Persona persona){
-//        this.persona = persona;
-//    }
-//    public Persona getPersona(){
-//        return this.persona;
-//    }
 
 
 

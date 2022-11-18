@@ -3,7 +3,7 @@ package com.portfolio.alan_lozano.Controller;
 
 import com.portfolio.alan_lozano.Dto.DtoExperiencia;
 import com.portfolio.alan_lozano.Entity.Experiencia;
-import com.portfolio.alan_lozano.Entity.Persona;
+
 import com.portfolio.alan_lozano.Security.Controller.Mensaje;
 import com.portfolio.alan_lozano.Service.ImpPersonaService;
 import com.portfolio.alan_lozano.Service.SExperiencia;
@@ -52,25 +52,18 @@ public class CExperiencia {
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoexp){
-        int persId = dtoexp.getPersona_fk();
+        
         if(StringUtils.isBlank(dtoexp.getNombreE())){
             return new ResponseEntity(new Mensaje("el nombre de la experiencia es obligatorio"), HttpStatus.BAD_REQUEST);
         }
 //        if(sExperiencia.existsByNombreE(dtoexp.getNombreE())){
 //            return new ResponseEntity(new Mensaje("esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
 //        }
-        Persona persona = sPersona.findPersona(persId);
-        
+                
         Experiencia experiencia = new Experiencia(dtoexp.getNombreE(), dtoexp.getDescripcionE());
-        
-        experiencia.setPersona(persona);
-        
-        sExperiencia.save(experiencia);
 
-        persona.addExperiencias(experiencia);
-        
-        sPersona.savePersona(persona);
-        
+        sExperiencia.save(experiencia);
+ 
         return new ResponseEntity(new Mensaje("experiencia agregada"), HttpStatus.OK);
     }
     

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PersonaService {
 
-  private URL = 'https://app-lozano.herokuapp.com/personas/';
+  private URL = 'https://a-lozano.herokuapp.com/personas/';
   
   constructor(private http: HttpClient) {}
     public getPersona(): Observable<Persona> {

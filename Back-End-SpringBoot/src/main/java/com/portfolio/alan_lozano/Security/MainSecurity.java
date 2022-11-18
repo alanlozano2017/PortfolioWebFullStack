@@ -47,12 +47,12 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("**").permitAll()
             .antMatchers("/personas/traer/perfil").permitAll()
             .antMatchers("/educacion/lista").permitAll()
             .antMatchers("/explab/lista").permitAll()
             .antMatchers("/skill/lista").permitAll()
             .antMatchers("/proyecto/lista").permitAll()
+            .antMatchers("**").permitAll()
             .anyRequest()
             .authenticated()
             .and()

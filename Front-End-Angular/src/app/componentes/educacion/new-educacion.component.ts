@@ -17,7 +17,7 @@ export class NewEducacionComponent implements OnInit {
   inicioE: number = 0;
   finE: number = 0;
   imgE:string = '';
-  persona_fk: number = 0;
+  
 
   constructor(private educacionService: EducacionService, private personaService: PersonaService, private router: Router) { }
 
@@ -28,8 +28,8 @@ export class NewEducacionComponent implements OnInit {
   }
   onCreate():void{
     this.personaService.getPersona().subscribe(data =>{
-      this.persona_fk = data.id;
-        const edu = new Educacion(this.nombreE, this.tituloE, this.descripcionE, this.inicioE, this.finE, this.imgE, this.persona_fk);
+      
+        const edu = new Educacion(this.nombreE, this.tituloE, this.descripcionE, this.inicioE, this.finE, this.imgE);
       
         this.educacionService.save(edu).subscribe(data =>{
           alert("educación añadida");

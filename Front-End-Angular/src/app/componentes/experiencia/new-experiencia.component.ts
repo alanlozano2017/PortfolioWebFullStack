@@ -12,7 +12,7 @@ import { PersonaService } from './../../servicios/persona.service';
 export class NewExperienciaComponent implements OnInit {
   nombreE: string = '';
   descripcionE: string = '';
-  persona_fk: number = 0;
+  
   constructor(private sExperiencia: SExperienciaService,private personaService: PersonaService, private router: Router) { }
 
   ngOnInit(): void {
@@ -22,8 +22,8 @@ export class NewExperienciaComponent implements OnInit {
   }
   onCreate():void{
     this.personaService.getPersona().subscribe(data =>{
-      this.persona_fk = data.id;
-      const expe = new Experiencia(this.nombreE, this.descripcionE,  this.persona_fk);
+      
+      const expe = new Experiencia(this.nombreE, this.descripcionE);
       this.sExperiencia.save(expe).subscribe(data =>{
         alert("experiencia añadida");
         this.router.navigate(['']);

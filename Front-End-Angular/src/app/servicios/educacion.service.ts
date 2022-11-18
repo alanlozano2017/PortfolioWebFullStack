@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class EducacionService {
   
-  private expURL ='https://app-lozano.herokuapp.com/educacion/';
+  private expURL ='https://a-lozano.herokuapp.com/educacion/';
   constructor(private httpClient: HttpClient) { }
 
   public lista(): Observable<Educacion[]>{

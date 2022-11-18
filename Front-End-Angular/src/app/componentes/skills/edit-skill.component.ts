@@ -10,7 +10,7 @@ import { SkillService } from './../../servicios/skill.service';
 })
 export class EditSkillComponent implements OnInit {
 
-skill: Skill = new Skill("", "", 0 , false, 1 );
+skill: Skill = new Skill("", "", 0 , false );
   constructor( private skillService: SkillService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

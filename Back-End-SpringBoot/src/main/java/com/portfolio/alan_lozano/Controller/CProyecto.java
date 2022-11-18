@@ -7,7 +7,7 @@ package com.portfolio.alan_lozano.Controller;
 
 
 import com.portfolio.alan_lozano.Dto.DtoProyecto;
-import com.portfolio.alan_lozano.Entity.Persona;
+
 import com.portfolio.alan_lozano.Entity.Proyecto;
 import com.portfolio.alan_lozano.Security.Controller.Mensaje;
 import com.portfolio.alan_lozano.Service.ImpPersonaService;
@@ -55,14 +55,14 @@ public class CProyecto {
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoProyecto dtoproyecto){
-        int persId = dtoproyecto.getPersona_fk();
+        
         if(StringUtils.isBlank(dtoproyecto.getNombreP())){
             return new ResponseEntity(new Mensaje("el nombre del proyecto es obligatorio"), HttpStatus.BAD_REQUEST);
         }
 //        if(sEducacion.existsByNombreE(dtoedu.getNombreE())){
 //            return new ResponseEntity(new Mensaje("esa educacion ya existe"), HttpStatus.BAD_REQUEST);
 //        }
-        Persona persona = sPersona.findPersona(persId);
+        
 
 
         Proyecto proyecto = new Proyecto(dtoproyecto.getNombreP(), dtoproyecto.getDescripcionP(), dtoproyecto.getUrlP(), dtoproyecto.getImgP());
@@ -72,13 +72,13 @@ public class CProyecto {
         if(dtoproyecto.getImgP()==""){
             proyecto.setImgP("../assets/proyectos/imgdefault.jpg");
         }
-        proyecto.setPersona(persona);
+        
         
         sProyecto.save(proyecto);
         
-        persona.addProyectos(proyecto);
         
-        sPersona.savePersona(persona);
+        
+        
         
         return new ResponseEntity(new Mensaje("proyecto agregado"), HttpStatus.OK);
     }
